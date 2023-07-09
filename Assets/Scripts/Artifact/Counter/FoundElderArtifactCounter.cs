@@ -1,12 +1,6 @@
 ﻿using Assets.Scripts.Artifact.ArtifactCore;
 using Assets.Scripts.Artifact.Counter;
 using Assets.Scripts.Utilites.UserDebug;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Assets.Scripts.Artifact
@@ -38,7 +32,7 @@ namespace Assets.Scripts.Artifact
             }
             if (IsFoundAllArtifact())
             {
-                throw new Exception("Сделай хрень");
+                Debug.LogError("Уведомления");
             }
         }
 

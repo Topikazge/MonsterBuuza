@@ -11,13 +11,15 @@ namespace Assets.Scripts.Artifact.Counter
         private void Start()
         {
             _foundElderArtifactCounter = FindFirstObjectByType<FoundElderArtifactCounter>();
-            DebugMessage.NotFoundComponent<FoundElderArtifactCounter>(gameObject, this, _foundElderArtifactCounter);      
+            DebugMessage.NotFoundComponent<FoundElderArtifactCounter>(gameObject, this, _foundElderArtifactCounter);
         }
 
         public void AddFoundArtifact(ElderArtifact elderArtifact)
         {
-            if (elderArtifact is not null)
-                _foundElderArtifactCounter.AddPickUpArtifact(elderArtifact.Id);
+            if (elderArtifact is null)
+                return;
+            elderArtifact.Hide();
+            _foundElderArtifactCounter.AddPickUpArtifact(elderArtifact.Id);
         }
     }
 }

@@ -56,21 +56,24 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Artifact\ArtifactCore\ElderArtifact.cs" />
     <Compile Include="Assets\FPSController\Scripts\SC_FPSController.cs" />
     <Compile Include="Assets\Scripts\Input\InputControlCharacter.cs" />
-    <Compile Include="Assets\Scripts\Character\CharacterPlayer.cs" />
-    <Compile Include="Assets\Scripts\Input\Actions\PlayerInputActoins.cs" />
-    <Compile Include="Assets\Scripts\Input\PlayerInputHolder.cs" />
-    <Compile Include="Assets\Scripts\Utilites\Debug\DebugMessage.cs" />
-    <Compile Include="Assets\Scripts\Input\IMoveDirectionPlayer.cs" />
-    <Compile Include="Assets\Scripts\Input\IMouseDirection.cs" />
     <Compile Include="Assets\Scripts\Input\IPlayerCharacterMovements.cs" />
-    <Compile Include="Assets\Scripts\Artifact\Counter\FoundElderArtifactCounter.cs" />
-    <Compile Include="Assets\Scripts\Artifact\ArtifactCore\ElderArtifact.cs" />
-    <Compile Include="Assets\Scripts\Artifact\Counter\ICountArtifact.cs" />
-    <Compile Include="Assets\Scripts\Artifact\Counter\AdderArtifact.cs" />
+    <Compile Include="Assets\Scripts\Input\IMoveDirectionPlayer.cs" />
+    <Compile Include="Assets\Scripts\Character\CharacterPlayer.cs" />
     <Compile Include="Assets\Scripts\Artifact\ArtifactCore\ArtifactCollision.cs" />
+    <Compile Include="Assets\NavMeshCleaner\Script\NavMeshCleaner.cs" />
+    <Compile Include="Assets\Scripts\Artifact\Counter\AdderArtifact.cs" />
+    <Compile Include="Assets\Scripts\Utilites\Debug\DebugMessage.cs" />
+    <Compile Include="Assets\Scripts\Input\Actions\PlayerInputActoins.cs" />
+    <Compile Include="Assets\Scripts\Artifact\Counter\ICountArtifact.cs" />
+    <Compile Include="Assets\Scripts\Artifact\Counter\FoundElderArtifactCounter.cs" />
     <Compile Include="Assets\Scripts\Artifact\Counter\ArtifactStatus.cs" />
+    <Compile Include="Assets\Scripts\Input\PlayerInputHolder.cs" />
+    <Compile Include="Assets\Scripts\Input\IMouseDirection.cs" />
+    <Compile Include="Assets\Scripts\Buuza\Buuza.cs" />
+    <Compile Include="Assets\Scripts\ArtBillBoarding\SpriteBillBoarding.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Список дел.txt" />
