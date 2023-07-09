@@ -44,6 +44,15 @@ public partial class @PlayerInputActoins: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""0152b07e-59e5-46e2-bdc7-48c6990bba0e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -134,6 +143,17 @@ public partial class @PlayerInputActoins: IInputActionCollection2, IDisposable
                     ""action"": ""MoveDirection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""04f42689-95d1-4c40-8007-25e0882dbf19"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -161,6 +181,7 @@ public partial class @PlayerInputActoins: IInputActionCollection2, IDisposable
         m_CharacterControl = asset.FindActionMap("CharacterControl", throwIfNotFound: true);
         m_CharacterControl_MoveDirection = m_CharacterControl.FindAction("MoveDirection", throwIfNotFound: true);
         m_CharacterControl_MouseDirection = m_CharacterControl.FindAction("MouseDirection", throwIfNotFound: true);
+        m_CharacterControl_Sprint = m_CharacterControl.FindAction("Sprint", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -224,12 +245,14 @@ public partial class @PlayerInputActoins: IInputActionCollection2, IDisposable
     private List<ICharacterControlActions> m_CharacterControlActionsCallbackInterfaces = new List<ICharacterControlActions>();
     private readonly InputAction m_CharacterControl_MoveDirection;
     private readonly InputAction m_CharacterControl_MouseDirection;
+    private readonly InputAction m_CharacterControl_Sprint;
     public struct CharacterControlActions
     {
         private @PlayerInputActoins m_Wrapper;
         public CharacterControlActions(@PlayerInputActoins wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveDirection => m_Wrapper.m_CharacterControl_MoveDirection;
         public InputAction @MouseDirection => m_Wrapper.m_CharacterControl_MouseDirection;
+        public InputAction @Sprint => m_Wrapper.m_CharacterControl_Sprint;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -245,6 +268,9 @@ public partial class @PlayerInputActoins: IInputActionCollection2, IDisposable
             @MouseDirection.started += instance.OnMouseDirection;
             @MouseDirection.performed += instance.OnMouseDirection;
             @MouseDirection.canceled += instance.OnMouseDirection;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
         }
 
         private void UnregisterCallbacks(ICharacterControlActions instance)
@@ -255,6 +281,9 @@ public partial class @PlayerInputActoins: IInputActionCollection2, IDisposable
             @MouseDirection.started -= instance.OnMouseDirection;
             @MouseDirection.performed -= instance.OnMouseDirection;
             @MouseDirection.canceled -= instance.OnMouseDirection;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
         }
 
         public void RemoveCallbacks(ICharacterControlActions instance)
@@ -285,5 +314,6 @@ public partial class @PlayerInputActoins: IInputActionCollection2, IDisposable
     {
         void OnMoveDirection(InputAction.CallbackContext context);
         void OnMouseDirection(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
     }
 }

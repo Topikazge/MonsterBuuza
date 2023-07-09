@@ -1,3 +1,4 @@
+using Assets.Scripts.Character;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace Assets.Scripts.Buuza
     public class Buuza : MonoBehaviour
     {
         private NavMeshAgent _agent;
-        private CharacterPlayer _characterPlayer;
+        private CharacterPlayerBase _characterPlayer;
 
         private void Start()
         {
@@ -18,7 +19,17 @@ namespace Assets.Scripts.Buuza
 
         private void Update()
         {
+            SetTargetToMove();
+        }
+
+        private void SetTargetToMove()
+        {
             _agent.SetDestination(_characterPlayer.transform.position);
+        }
+
+        public void OnCollisionWithCharacter(Collision collision)
+        {
+            _characterPlayer.Hit();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Utilites.UserDebug;
+﻿using Assets.Scripts.Character;
+using Assets.Scripts.Utilites.UserDebug;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace Assets.Scripts.Artifact.ArtifactCore
 
         private bool TryFind<T>(GameObject target) where T : MonoBehaviour
         {
-            return target.TryGetComponent(out T scoreZone) ? true : false;
+            return target.TryGetComponent(out T character) ? true : false;
         }
     }
 }

@@ -59,21 +59,25 @@
     <Compile Include="Assets\Scripts\Artifact\ArtifactCore\ElderArtifact.cs" />
     <Compile Include="Assets\FPSController\Scripts\SC_FPSController.cs" />
     <Compile Include="Assets\Scripts\Input\InputControlCharacter.cs" />
-    <Compile Include="Assets\Scripts\Input\IPlayerCharacterMovements.cs" />
-    <Compile Include="Assets\Scripts\Input\IMoveDirectionPlayer.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterPlayer.cs" />
     <Compile Include="Assets\Scripts\Artifact\ArtifactCore\ArtifactCollision.cs" />
     <Compile Include="Assets\NavMeshCleaner\Script\NavMeshCleaner.cs" />
     <Compile Include="Assets\Scripts\Artifact\Counter\AdderArtifact.cs" />
+    <Compile Include="Assets\Scripts\ArtBillBoarding\SpriteBillBoarding.cs" />
     <Compile Include="Assets\Scripts\Utilites\Debug\DebugMessage.cs" />
     <Compile Include="Assets\Scripts\Input\Actions\PlayerInputActoins.cs" />
     <Compile Include="Assets\Scripts\Artifact\Counter\ICountArtifact.cs" />
+    <Compile Include="Assets\Scripts\Buuza\Buuza.cs" />
     <Compile Include="Assets\Scripts\Artifact\Counter\FoundElderArtifactCounter.cs" />
     <Compile Include="Assets\Scripts\Artifact\Counter\ArtifactStatus.cs" />
     <Compile Include="Assets\Scripts\Input\PlayerInputHolder.cs" />
-    <Compile Include="Assets\Scripts\Input\IMouseDirection.cs" />
-    <Compile Include="Assets\Scripts\Buuza\Buuza.cs" />
-    <Compile Include="Assets\Scripts\ArtBillBoarding\SpriteBillBoarding.cs" />
+    <Compile Include="Assets\Scripts\Buuza\BuuzaCollisison.cs" />
+    <Compile Include="Assets\Scripts\Character\CharacterPlayerController.cs" />
+    <Compile Include="Assets\Scripts\Character\CharacterPlayerBase.cs" />
+    <Compile Include="Assets\Scripts\Input\InputRead\IPlayerCharacterMovements.cs" />
+    <Compile Include="Assets\Scripts\Input\InputRead\ISprintEnter.cs" />
+    <Compile Include="Assets\Scripts\Input\InputRead\IMoveDirectionPlayer.cs" />
+    <Compile Include="Assets\Scripts\Input\InputRead\IMouseDirection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Список дел.txt" />
