@@ -5,23 +5,24 @@ using UnityEngine;
 
 namespace Assets.Scripts.Artifact
 {
-    [RequireComponent(typeof(AdderArtifact))]
     internal class FoundElderArtifactCounter : MonoBehaviour
     {
         private ArtifactStatus[] _artifacts;
+        private ElderArtifactController _elderArtifactController;
 
         private void Start()
         {
-            ElderArtifact[] elderArtifacts = FindObjectsOfType<ElderArtifact>();
-            _artifacts = new ArtifactStatus[elderArtifacts.Length];
-            DebugMessage.NotFoundComponents<ElderArtifact>(elderArtifacts.Length, gameObject, this);
-            for (int i = 0; i < elderArtifacts.Length; i++)
-            {
-                _artifacts[i] = new ArtifactStatus(elderArtifacts[i].Id,false);
-            }
+            _elderArtifactController = GetComponent<ElderArtifactController>();
+            DebugMessage.NullGetComponent<ElderArtifactController>(gameObject,this, _elderArtifactController);
         }
 
-        public void AddPickUpArtifact(int idArtifact)
+        public void Init(ArtifactStatus[] artifactStatus)
+        {
+            DebugMessage.ObjectIsNull<ArtifactStatus>(gameObject,this, artifactStatus);
+            _artifacts = artifactStatus;
+        }
+
+        public void OnPickUpArtifact(int idArtifact)
         {
             foreach (var item in _artifacts)
             {
@@ -32,7 +33,7 @@ namespace Assets.Scripts.Artifact
             }
             if (IsFoundAllArtifact())
             {
-                Debug.LogError("Уведомления");
+                _elderArtifactController.ElderArtifactFounded();
             }
         }
 

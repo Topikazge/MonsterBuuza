@@ -11,7 +11,7 @@ namespace Assets.Scripts.Input
         private void Start()
         {
             PlayerInputHolder playerInputHolder = FindFirstObjectByType<PlayerInputHolder>();
-            DebugMessage.ErrorNullGetComponent<PlayerInputHolder>(gameObject,this, playerInputHolder);
+            DebugMessage.NullGetComponent<PlayerInputHolder>(gameObject,this, playerInputHolder);
             _inputActions = playerInputHolder.InputActions;
         }
 

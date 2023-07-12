@@ -16,7 +16,7 @@ namespace Assets.Scripts.Artifact.ArtifactCore
         private void Start()
         {
             _elderArtifact = GetComponent<ElderArtifact>();
-            DebugMessage.ErrorNullGetComponent<ElderArtifact>(gameObject,this, _elderArtifact);
+            DebugMessage.NullGetComponent<ElderArtifact>(gameObject,this, _elderArtifact);
         }
 
         private void OnTriggerEnter(Collider collision)

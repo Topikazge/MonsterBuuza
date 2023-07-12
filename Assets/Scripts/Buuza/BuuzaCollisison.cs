@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Artifact.ArtifactCore;
 using Assets.Scripts.Character;
+using Assets.Scripts.Utilites.UserDebug;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace Assets.Scripts.Buuza
         private void Start()
         {
             _buuza = GetComponent<Buuza>();
+            DebugMessage.NotFoundComponent<Buuza>(gameObject,this, _buuza);
         }
         private void OnTriggerEnter(Collider collision)
         {
@@ -30,6 +32,5 @@ namespace Assets.Scripts.Buuza
         {
             return target.TryGetComponent(out T character) ? true : false;
         }
-
     }
 }

@@ -20,18 +20,21 @@ namespace Assets.Scripts.Character
         private float _rotationHorizontl = 0;
         //private bool _canMove = true;
         private IPlayerCharacterMovements _inputActions;
+        private CharacterPlayerController _characterPlayerController;
 
         public override void Hit()
         {
-            throw new System.NotImplementedException();
+            _characterPlayerController.PlayerDied();
         }
 
         private void Start()
         {
             _inputActions = FindAnyObjectByType<InputControlCharacter>();
+            DebugMessage.ObjectIsNull<InputControlCharacter>(gameObject, this, _inputActions);
             _characterController = GetComponent<CharacterController>();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            DebugMessage.NullGetComponent<CharacterController>(gameObject, this, _characterController);
+            _characterPlayerController = FindFirstObjectByType<CharacterPlayerController>();
+            DebugMessage.NotFoundComponent<CharacterPlayerController>(gameObject, this, _characterPlayerController);
         }
 
         private void Update()

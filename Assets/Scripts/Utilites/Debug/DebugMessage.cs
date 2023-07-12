@@ -12,7 +12,7 @@ namespace Assets.Scripts.Utilites.UserDebug
             Debug.Log($"Ошибка! Имя объекта {objectMassage.name}, компонент {typesObject}, текст: {text}");
         }
 
-        public static void ErrorNullGetComponent<typeNullObject>(GameObject objectMassage, Component component, Component nullObject)
+        public static void NullGetComponent<typeNullObject>(GameObject objectMassage, Component component, Component nullObject)
         {
             if (nullObject != null)
                 return;
@@ -31,6 +31,13 @@ namespace Assets.Scripts.Utilites.UserDebug
             if (count != 0)
                 return;
             Debug.LogError($"Найдено 0 элементов <color=red>{typeof(typeNullObject)}</color>! В компоненте <color=red>{component}</color> объекта <color=red>{objectMassage.name}</color>");
+        }
+
+        public static void ObjectIsNull<typeNullObject>(GameObject objectMassage, Component component, object @object)
+        {
+            if (@object != null)
+                return;
+            Debug.LogError($"Объект null <color=red>{typeof(typeNullObject)}</color> равен NULL! В компоненте <color=red>{component}</color> объекта <color=red>{objectMassage.name}</color>");
         }
     }
 }

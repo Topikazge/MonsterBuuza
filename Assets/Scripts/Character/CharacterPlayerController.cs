@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Utilites.UserDebug;
+﻿using Assets.Scripts.Level;
+using Assets.Scripts.Utilites.UserDebug;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +12,20 @@ namespace Assets.Scripts.Character
 {
     internal class CharacterPlayerController : MonoBehaviour
     {
-        private CharacterPlayer _characterPlayer;
+        private CharacterPlayer _character;
+        private IRestart _level;
 
         private void Start()
         {
-            _characterPlayer = FindObjectOfType<CharacterPlayer>();
-            DebugMessage.NotFoundComponent<CharacterPlayer>(gameObject,this, _characterPlayer);
+            _character = FindObjectOfType<CharacterPlayer>();
+            DebugMessage.NotFoundComponent<CharacterPlayer>(gameObject,this, _character);
+            _level = FindObjectOfType<LevelBase>();
+            DebugMessage.NotFoundComponent<LevelBase>(gameObject, this, (LevelBase)_level);
         }
+
         public void PlayerDied()
         {
-            Debug.LogError("Игрок умер");
+            _level.Restart();
         }
     }
 }
